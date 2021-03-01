@@ -55,10 +55,10 @@ def get_uploaded_images():
     filelst = [] 
     for subdir, dirs, files in os.walk(rootdir + '/uploads'):
         for file in files: 
-            lst.append(file)
+            filelst.append(file)
             if not session.get('logged_in'):
                 abort(401)
-    lst.pop(0)
+    filelst.pop(0)
     return filelst
 
 @app.route('/uploads/<path:filename>')
